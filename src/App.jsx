@@ -1,25 +1,20 @@
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
 import { Button } from '@mui/material'
-import { AccessAlarm, ThreeDRotation } from '@mui/icons-material'
-import { pink } from '@mui/material/colors'
-import HomeIcon from '@mui/icons-material/Home'
 
 function App() {
   return (
-    <>
-      <div>Nguyễn Thế Lộc</div>
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-      <br />
-      <AccessAlarm />
-      <ThreeDRotation />
-      <HomeIcon color="primary" />
-      <HomeIcon color="secondary" />
-      <HomeIcon color="success" />
-      <HomeIcon color="action" />
-      <HomeIcon color="disabled" />
-      <HomeIcon sx={{ color: pink[500] }} />
-    </>
+    <Container maxWidth="sm">
+      <Box sx={{ my: 4 }}>
+        <Typography variant="h4" component="h1" sx={{ mb: 2 }} color='text.primary'>
+          Material UI Vite.js example
+        </Typography>
+        <Button variant='contained' color='secondary'>
+          Contained
+        </Button>
+      </Box>
+    </Container>
   )
 }
 

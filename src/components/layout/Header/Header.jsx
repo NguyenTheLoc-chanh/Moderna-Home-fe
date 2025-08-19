@@ -10,7 +10,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import logo from '~/assets/images/logoTN_01.png'
 import Profile from './profile'
-import SearchBar from '~/components/ui/SearchBar/index'
+import SearchBar from '~/components/ui/SearchBar/SearchBar'
 import Container from '@mui/material/Container'
 import Badge from '@mui/material/Badge'
 

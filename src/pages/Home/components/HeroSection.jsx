@@ -18,8 +18,9 @@ export default function HeroSection() {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         borderRadius: '0 0 20px 20px',
-        display: 'flex',
-        alignItems: 'center'
+        display: 'block',
+        alignItems: 'center',
+        overflow: 'hidden'
       }}>
       <Container>
         <Box

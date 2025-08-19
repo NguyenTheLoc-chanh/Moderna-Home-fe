@@ -1,11 +1,9 @@
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
 import Header from '~/components/layout/Header'
 import Footer from '~/components/layout/Footer'
 import Grid from '@mui/material/Grid'
-import { ExploreCategories, HeroSection } from './components'
+import { Benefits, ExploreCategories, HeroSection, SpecialProduct, SubscribeSection } from './components'
 
 export default function Home() {
   return (
@@ -15,9 +13,20 @@ export default function Home() {
 
       {/* Nội dung chính */}
       <Container>
-        <Grid container spacing={4} alignItems={'center'}>
+        <Grid size={{ xs: 12 }}>
           <HeroSection />
+        </Grid>
+        <Grid size={{ xs: 12 }}>
           <ExploreCategories />
+        </Grid>
+        <Grid size={{ xs: 12 }}>
+          <SpecialProduct />
+        </Grid>
+        <Grid size={{ xs: 12 }}>
+          <Benefits />
+        </Grid>
+        <Grid size={{ xs: 12 }}>
+          <SubscribeSection />
         </Grid>
       </Container>
 

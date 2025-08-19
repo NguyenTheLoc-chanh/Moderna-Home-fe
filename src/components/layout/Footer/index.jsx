@@ -23,7 +23,7 @@ function Footer() {
       <Container>
         <Grid container spacing={4} justifyContent="space-between">
           {/* About Us */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 6, sm: 6, md: 3 }}>
             <Typography variant="h6" gutterBottom>
               About Us
             </Typography>
@@ -36,7 +36,7 @@ function Footer() {
             </Stack>
           </Grid>
           {/* Shopping */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 6, sm: 6, md: 3 }}>
             <Typography variant="h6" gutterBottom>
               Shopping
             </Typography>
@@ -49,7 +49,7 @@ function Footer() {
             </Stack>
           </Grid>
           {/* Latest News */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 6, sm: 6, md: 3 }}>
             <Typography variant="h6" gutterBottom>
               Latest News
             </Typography>
@@ -62,7 +62,7 @@ function Footer() {
             </Stack>
           </Grid>
           {/* Subscribe */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 6, sm: 6, md: 3 }}>
             <Typography variant="h6" gutterBottom>
               Subscribe
             </Typography>

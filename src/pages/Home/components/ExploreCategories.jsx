@@ -3,7 +3,7 @@ import React from 'react'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import SearchBar from '~/components/ui/SearchBar/index'
+import SearchBar from '~/components/ui/SearchBar/SearchBar'
 import Stack from '@mui/material/Stack'
 import Link from '@mui/material/Link'
 import ImageList from '@mui/material/ImageList'
@@ -15,7 +15,7 @@ import img3 from '~/assets/images/img3.png'
 import img4 from '~/assets/images/img4.png'
 import img5 from '~/assets/images/img5.png'
 import img6 from '~/assets/images/img6.png'
-import MobileCategory from '~/components/ui/MobileCategory'
+import MobileCategory from '~/components/ui/MobileCategory/MobileCategory'
 
 const itemData = [
   {

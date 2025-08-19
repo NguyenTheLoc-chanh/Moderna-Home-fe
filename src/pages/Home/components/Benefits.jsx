@@ -36,7 +36,7 @@ function Benefits() {
           m: { xs: '32px 0', sm: '32px 50px', lg: '86px 64px 70px 0' },
           bgcolor: '#808080',
           borderTopRightRadius: '80px',
-          p: '30px 0',
+          p: { xs: '0', sm: '30px 0' },
           pl: { sm: '20px', lg: '100px' },
           pr: { sm: '20px' }
         }}>
@@ -65,10 +65,11 @@ function Benefits() {
                     src= {img2}
                     alt='Hình ảnh 2'
                     sx={{
-                      width: { xs: '90%', sm: '100%' },
+                      width: { xs: '100%', sm: '100%' },
                       height: '100%',
                       objectFit: 'cover',
-                      display: 'block'
+                      display: 'block',
+                      borderTopRightRadius: '80px'
                     }}
                   />
                 </RouterLink>
@@ -135,7 +136,7 @@ function Benefits() {
           </Grid>
         </Grid>
       </Box>
-      <Box mb={{ xs: '32px', md: '109px' }} mt={{ xs: '160px', sm: '130px' }}>
+      <Box mb={{ xs: '32px', md: '100px' }} mt={{ xs: '160px', sm: '130px', md: '60px' }}>
         <Typography variant="h1" fontWeight="bold" mb={4} textAlign="center">
         Benefit for you
         </Typography>

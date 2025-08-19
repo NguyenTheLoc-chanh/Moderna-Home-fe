@@ -62,7 +62,7 @@ function Footer() {
             </Stack>
           </Grid>
           {/* Subscribe */}
-          <Grid size={{ xs: 6, sm: 6, md: 3 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Typography variant="h6" gutterBottom>
               Subscribe
             </Typography>

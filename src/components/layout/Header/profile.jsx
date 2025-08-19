@@ -11,7 +11,7 @@ import Settings from '@mui/icons-material/Settings'
 import Logout from '@mui/icons-material/Logout'
 import PersonAdd from '@mui/icons-material/PersonAdd'
 import avatar from '~/assets/images/avatar.jpg'
-import StyledBadge from '~/components/ui/StyledBadge'
+import StyledBadge from '~/components/ui/StyledBadge/StyledBadge'
 
 
 function Profile() {

@@ -14,7 +14,7 @@ export default function HeroSection() {
         width: '100%',
         height: { xs: '220px', md: '600px' },
         backgroundImage: `url(${bannerImg})`,
-        backgroundSize: { xs: 'contain', md: 'cover' },
+        backgroundSize: { xs: '100%', md: 'cover' },
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         borderRadius: '0 0 20px 20px',

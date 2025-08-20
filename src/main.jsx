@@ -5,6 +5,8 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 import { BrowserRouter } from 'react-router-dom'
 import theme from './config/theme.js'
+import { Provider } from 'react-redux'
+import { store } from './store/slices/index.js'
 
 
 createRoot(document.getElementById('root')).render(
@@ -13,7 +15,9 @@ createRoot(document.getElementById('root')).render(
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </ThemeProvider>
     </BrowserRouter>
   </StrictMode>

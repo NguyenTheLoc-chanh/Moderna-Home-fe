@@ -23,7 +23,7 @@ export default function Product() {
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       {/* Nội dung chính */}
       <Container disableGutters>
-        <Grid>
+        <Grid size={{ xs: 12 }}>
           <ProductHeader />
         </Grid>
         <Grid size={{ xs: 12 }}>

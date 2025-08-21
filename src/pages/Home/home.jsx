@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Nội dung chính */}
-      <Container>
+      <Container disableGutters>
         <Grid size={{ xs: 12 }}>
           <HeroSection />
         </Grid>

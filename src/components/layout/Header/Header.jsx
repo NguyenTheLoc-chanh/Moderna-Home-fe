@@ -13,12 +13,17 @@ import Profile from './profile'
 import SearchBar from '~/components/ui/SearchBar/SearchBar'
 import Container from '@mui/material/Container'
 import Badge from '@mui/material/Badge'
+import Link from '@mui/material/Link'
+import { useSelector } from 'react-redux'
 
 const navItems = ['Home', 'Product', 'About Us', 'Contact']
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null)
   const [searchOpen, setSearchOpen] = useState(false)
+
+  // Lấy user từ Redux store (authSlice)
+  const { user } = useSelector((state) => state.auth)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
@@ -119,7 +124,19 @@ function Header() {
               <ShoppingCartIcon sx={{ cursor: 'pointer' }} />
             </Badge>
           </Tooltip>
-          <Profile />
+          {user ? (
+            <Profile />
+          ) : (
+            <Box sx={{ display: 'flex', gap: 1 }}>
+              <Link href="/login" underline="none" sx={{ fontWeight: 500, cursor: 'pointer' }}>
+                Đăng nhập
+              </Link>
+              <span>/</span>
+              <Link href="/register" underline="none" sx={{ fontWeight: 500, cursor: 'pointer' }}>
+                Đăng ký
+              </Link>
+            </Box>
+          )}
         </Box>
       </Box>
     </Container>

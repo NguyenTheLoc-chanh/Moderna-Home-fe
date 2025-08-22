@@ -1,5 +1,5 @@
 // # Tabs: All, Bathroom, Bedroom, Kitchen...
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
@@ -7,25 +7,35 @@ import Chip from '@mui/material/Chip'
 import InputBase from '@mui/material/InputBase'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import IconButton from '@mui/material/IconButton'
+import { useCategory } from '~/hooks/useCategory'
+import useProduct from '~/hooks/useProduct'
+import Typography from '@mui/material/Typography'
+import { ProductGrid } from '.'
+import Loading from '~/components/utils/Loading/Loading'
 
-const categories = [
-  'All',
-  'Bathroom',
-  'Bedroom',
-  'Livingroom',
-  'Workspace',
-  'Dinning room',
-  'Meeting room',
-  'Kitchen'
-]
 
 function ProductTabs() {
   const [value, setValue] = React.useState(0)
   const [query, setQuery] = useState('')
   const [filters, setFilters] = useState([])
 
+  const { categories, loading: loadingCat, error: errorCat, loadCategories } = useCategory()
+  const { products, fetchProductsByCategory, loading: loadingProd } = useProduct()
+
+  useEffect(() => {
+    loadCategories()
+  }, [loadCategories])
+
   const handleChange = (event, newValue) => {
     setValue(newValue)
+    if (newValue === 0) {
+      fetchProductsByCategory(0) // All
+    } else {
+      const selectedCategory = categories[newValue - 1] // vì All chiếm index 0
+      if (selectedCategory) {
+        fetchProductsByCategory(selectedCategory.id)
+      }
+    }
   }
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -62,18 +72,35 @@ function ProductTabs() {
             mb: { xs: 2, sm: 2 }
           }}
         >
-          {categories.map((cat, index) => (
+          {loadingCat && <Loading open={loadingCat} />}
+          {errorCat && <Tab label="Error" disabled />}
+          {!loadingCat && !errorCat && (
             <Tab
-              key={index}
-              value={index}
-              label={cat}
+              key="all"
+              value={0}
+              label="All"
               sx={{
                 minWidth: 'auto',
                 px: 2,
                 fontSize: '18px',
                 textTransform: 'none',
-                fontWeight: value === index ? 'bold' : 'normal',
-                color: value === index ? 'text.primary' : 'text.secondary'
+                fontWeight: value === 0 ? 'bold' : 'normal',
+                color: value === 0 ? 'text.primary' : 'text.secondary'
+              }}
+            />
+          )}
+          {!loadingCat && !errorCat && categories.map((cat, index) => (
+            <Tab
+              key={cat.id || index}
+              value={index + 1}
+              label={cat.name}
+              sx={{
+                minWidth: 'auto',
+                px: 2,
+                fontSize: '18px',
+                textTransform: 'none',
+                fontWeight: value === index + 1 ? 'bold' : 'normal',
+                color: value === index + 1 ? 'text.primary' : 'text.secondary'
               }}
             />
           ))}
@@ -138,6 +165,14 @@ function ProductTabs() {
             }}
           />
         ))}
+      </Box>
+      {/* Render sản phẩm */}
+      <Box>
+        {loadingProd ? (
+          <Loading open={loadingProd} />
+        ) : (
+          <ProductGrid products={products} />
+        )}
       </Box>
     </>
   )

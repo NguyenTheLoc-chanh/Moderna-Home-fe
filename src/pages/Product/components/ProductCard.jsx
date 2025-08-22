@@ -18,15 +18,25 @@ function ProductCard({ product }) {
         <CardMedia
           component="img"
           height="270"
-          image={product.image}
+          image={product.imageUrl}
           alt={product.name}
         />
         <CardContent>
-          <Typography variant="subtitle2" fontWeight="bold">
+          <Typography variant="subtitle2" fontWeight="bold" mb={1}>
             {product.name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {product.options} options
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            mb={1}
+            sx={{
+              display: '-webkit-box',
+              WebkitLineClamp: '2',
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden'
+            }}
+          >
+            {product.description}
           </Typography>
           <Box display="flex" alignItems="center" gap={1}>
             <Typography variant="body2">{product.rating}</Typography>

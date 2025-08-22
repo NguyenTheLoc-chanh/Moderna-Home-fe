@@ -14,9 +14,15 @@ import SearchBar from '~/components/ui/SearchBar/SearchBar'
 import Container from '@mui/material/Container'
 import Badge from '@mui/material/Badge'
 import Link from '@mui/material/Link'
+import { Link as RouterLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-const navItems = ['Home', 'Product', 'About Us', 'Contact']
+const navItems = [
+  { label: 'Home', to: '/' },
+  { label: 'Product', to: '/product' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Contact', to: '/contact' }
+]
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null)
@@ -60,8 +66,13 @@ function Header() {
             sx={{ display: { xs: 'block', md: 'none' } }}
           >
             {navItems.map((item) => (
-              <MenuItem key={item} onClick={handleCloseNavMenu}>
-                {item}
+              <MenuItem
+                key={item}
+                component={RouterLink}
+                to={item.to}
+                onClick={handleCloseNavMenu}
+              >
+                {item.label}
               </MenuItem>
             ))}
           </Menu>
@@ -93,6 +104,8 @@ function Header() {
           {navItems.map((item, index) => (
             <Button
               key={index}
+              to={item.to}
+              component={RouterLink}
               color="secondary"
               sx={(theme) => ({
                 fontWeight: item === 'Home' ? 'bold' : 'normal',
@@ -104,7 +117,7 @@ function Header() {
                 fontSize: '20px'
               })}
             >
-              {item}
+              {item.label}
             </Button>
           ))}
         </Box>
@@ -131,7 +144,7 @@ function Header() {
               <Link href="/login" underline="none" sx={{ fontWeight: 500, cursor: 'pointer' }}>
                 Đăng nhập
               </Link>
-              <span>/</span>
+              <span>|</span>
               <Link href="/register" underline="none" sx={{ fontWeight: 500, cursor: 'pointer' }}>
                 Đăng ký
               </Link>
